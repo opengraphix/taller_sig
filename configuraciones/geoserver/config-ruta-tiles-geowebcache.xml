@@ -1,0 +1,5 @@
+    <context-param>
+      <param-name>GEOWEBCACHE_CACHE_DIR</param-name>
+      <param-value>/opt/cachetiles</param-value>
+    </context-param>
+

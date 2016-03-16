@@ -1,0 +1,35 @@
+postgresql.conf
+
+shared_buffers: 75 % of database memory (500 MB)
+work_mem: 16 MB -----(Recommended: Available Memory / 8)
+maintenance_work_mem: 128 MB
+wal_buffers: 1 MB (Recommended: 8MB)
+checkpoint_segments: 6 (Recommended: 16 to 128)
+random_page_cost: 2.0
+seq_page_cost: 1.0
+
+Parametros de kernel
+
+Linux
+The default maximum segment size is 32 MB, and the default maximum total size is 2097152 pages. A page is almost always 4096 bytes except in unusual kernel configurations with "huge pages" (use getconf PAGE_SIZE to verify).
+
+The shared memory size settings can be changed via the sysctl interface. For example, to allow 16 GB:
+
+$ sysctl -w kernel.shmmax=17179869184
+$ sysctl -w kernel.shmall=4194304
+In addition these settings can be preserved between reboots in the file /etc/sysctl.conf. Doing that is highly recommended.
+
+Ancient distributions might not have the sysctl program, but equivalent changes can be made by manipulating the /proc file system:
+
+$ echo 17179869184 >/proc/sys/kernel/shmmax
+$ echo 4194304 >/proc/sys/kernel/shmall
+The remaining defaults are quite generously sized, and usually do not require changes.
+
+Referencias
+
+http://www.postgresql.org/docs/current/static/kernel-resources.html
+http://workshops.boundlessgeo.com/postgis-intro/tuning.html
+http://anitagraser.com/2011/01/14/postgis-tuning/
+http://www.anchor.com.au/hosting/dedicated/Tuning_PostgreSQL_on_your_Dedicated_Server
+http://www.revsys.com/writings/postgresql-performance.html
+http://postgis.net/docs/manual-1.4/ch06.html

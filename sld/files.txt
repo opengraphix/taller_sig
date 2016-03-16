@@ -1,0 +1,1 @@
+scp "capital.sld" "city 1.sld" "city 2.sld" "city 3.sld" "city 4.sld" "country.sld" "ferry-text.sld" "landmark-point-text.sld" "landmark-poly-text.sld" "locality.sld" "neighborhood.sld" "shield-text.sld" "state.sld" "street-text.sld" "water-line-text.sld" "water-text.sld" dwinslow@dev.opengeo.org:public_html/styles
